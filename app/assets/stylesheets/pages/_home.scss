@@ -1,1 +1,40 @@
 // Specific CSS for your home-page
+#how {
+    text-align: center;
+}
+
+i {
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: #19bb73;
+}
+
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.info {
+    width: 25%;
+    text-align: center; 
+    background-color: #ffffff;
+    margin: 60px 15px;
+    padding: 40px 15px;
+    box-shadow: 0px -1px 90px 1px rgba(192,192,192,1);
+    border-radius: 2px;
+}
+
+.steps {
+    padding: 50px;
+    background-color: #F0F0F0;
+}
+
+h4 {
+    color: #19bb73;
+}
+
+body {
+    background-color: #ffffff;
+}
