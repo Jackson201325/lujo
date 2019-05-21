@@ -6,7 +6,7 @@ class CarsController < ApplicationController
   def mycars
     @cars = current_user.cars
   end
-  
+
   def new
     @car = Car.new
   end
@@ -15,7 +15,7 @@ class CarsController < ApplicationController
     @car = Car.new(car_params)
     @car.user = current_user
     @car.save
-    redirect_to
+    redirect_to user_cars_path(current_user)
   end
 
   def edit
