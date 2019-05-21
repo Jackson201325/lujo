@@ -1,38 +1,43 @@
- <ul>  
-<li>image:<%= @car.image %></li>
-<li>Address: <%= @car.address %></li>
-<li>Brand: <%= @car.brand %></li>
-<li>Year: <%= @car.year %></li>
-<li>Model: <%= @car.model %></li>
-<li>Odometer: <%= @car.odometer %></li>
-<li>Transmission: <%= @car.transmission %></li>
-<li>License Plate: <%= @car.license_plate %></li>
-<li>Description: <%= @car.description %></li>
-<li>Availability:<%= @car.availability %></li>
-<li>Price_per_day:<%= @car.price_per_day %></li>
-<li><%= @car.latitude %></li>
-<li><%= @car.longitude %></li>
-<li>Created_at<%= @car.created_at %></li>
-<li>Updated_at<%= @car.updated_at %></li>
-<ul> 
 
-<div class="card-trip">
-  <img src="<%= @car.image %>">
-  <div class="card-trip-infos">
-    <div>
-      <h2><%= @car.model %></h2>
-      <p><%= @car.brand %></p>
-      <p>Address:<%= @car.address %></p>
-      <p>Year:<%= @car.year %></p>
-      <p>Odometer<%= @car.odometer %></p>
-      <p>Transmission: <%= @car.transmission %></p>
-      <p>License Plate: <%= @car.license_plate %></p>
-      <p>Description: <%= @car.description %></p>
-      <p>Availability:<%= @car.availability %></p>
-      <p>Price_per_day:<%= @car.price_per_day %></p>
-    </div>
-    <h2 class="card-trip-pricing">£99.99</h2>
-    <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/>
-  </div>
+<div class='big-container'>
+        <div class='carshow-container'>
+                <img src='https://www.automobilesreview.com/gallery/hyundai-luxury-sports-coupe-hnd-9/hyundai-luxury-sports-coupe-hnd-9-01.jpg' alt='luxury car' style='height: 500px;'>        
+            <div class='show-details'>
+            <h2> <%=@car.brand%> <%=@car.model%></h2>
+            <table style="width:60%">
+            <tr>
+              <td>Address:</th>
+              <td><%= @car.address %></th>
+            </tr>
+            <tr>
+              <td>Year:</td>
+              <td><%= @car.year %></td>
+            </tr>
+            <tr>
+              <td>Odometer:</td>
+              <td><%= @car.odometer %></td>
+            </tr>
+            <tr>
+              <td>Transmission:</td>
+              <td><%= @car.transmission %></td>
+            </tr>
+            <tr>
+              <td>License Plate:</td>
+              <td><%= @car.license_plate %></td>
+            </tr>
+            <tr>
+              <td>Description:</td>
+              <td><%= @car.description %></td>
+            </tr>
+            <tr>
+              <td>Transmission:</td>
+              <td><%= @car.transmission %></td>
+            </tr>
+            <tr>
+              <td>Price per day:</td>
+              <td><%= @car.price_per_day %>$</td>
+            </tr>
+          </table>
+          </div>
+        </div>
 </div>
-
