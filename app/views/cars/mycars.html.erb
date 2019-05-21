@@ -6,6 +6,9 @@
     <h5 class="card-title"><%= car.model %></h5>
     <p class="card-text"><%=car.description %></p>
     <%= link_to "Show Car", car_path(car), class: "btn btn-primary" %>
+    <% if policy(Car).create? %>
+      <%= link_to "Delete Car", car_path(car), method: :delete, class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
 
