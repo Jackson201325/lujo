@@ -66,11 +66,14 @@ GEM
       railties (>= 3.2, < 6.1)
     erubi (1.8.0)
     execjs (2.7.0)
+    faker (1.9.3)
+      i18n (>= 0.7)
     ffi (1.11.0)
     font-awesome-sass (5.6.1)
       sassc (>= 1.11)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    hirb (0.7.3)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     jbuilder (2.9.1)
@@ -196,7 +199,9 @@ DEPENDENCIES
   bootsnap
   devise
   dotenv-rails
+  faker
   font-awesome-sass (~> 5.6.1)
+  hirb
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
   pg (~> 0.21)
