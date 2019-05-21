@@ -1,10 +1,11 @@
 <h2 style='margin: 30px;'>Browse our selection of cars</h2>
 
-
 <div class='carbig-container'>
     <% @cars.each do |car| %>
         <div class='car-container'>
-                <img src='https://www.automobilesreview.com/gallery/hyundai-luxury-sports-coupe-hnd-9/hyundai-luxury-sports-coupe-hnd-9-01.jpg' alt='luxury car' style='height:280px;'>        
+            <%= link_to car_path(car) do %>
+                <%= image_tag "https://www.automobilesreview.com/gallery/hyundai-luxury-sports-coupe-hnd-9/hyundai-luxury-sports-coupe-hnd-9-01.jpg", id: "index_img" %>
+            <% end %>       
             <div class='details'>
                 <h5> <%=car.brand%> <%=car.model%></h5>
                 <h5> $<%=car.price_per_day%> <small>/day</small> </h5>
