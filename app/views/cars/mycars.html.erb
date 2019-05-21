@@ -1,16 +1,19 @@
 <h2>Browse your selection of cars</h2>
 
-
 <div class='carbig-container'>
     <% @cars.each do |car| %>
         <div class='car-container'>
-        <%= link_to car_path(car) do %>
-          <%= image_tag "https://www.automobilesreview.com/gallery/hyundai-luxury-sports-coupe-hnd-9/hyundai-luxury-sports-coupe-hnd-9-01.jpg", id: "index_img" %>
-        <% end %>
-          <div class='details'>
-              <h5> <%=car.brand%> <%=car.model%></h5>
-              <h5> $<%=car.price_per_day%> <small>/day</small> </h5>
+          <%= link_to car_path(car) do %>
+            <%= image_tag "https://www.automobilesreview.com/gallery/hyundai-luxury-sports-coupe-hnd-9/hyundai-luxury-sports-coupe-hnd-9-01.jpg", id: "index_img" %>
+          <% end %>
+            <div class='details'>
+                <h5> <%=car.brand%> <%=car.model%></h5>
+                <h5> $<%=car.price_per_day%> <small>/day</small> </h5>
+            </div>
+          <%= link_to "Show Car", car_path(car), class: "btn btn-primary" %>
+          <% if policy(Car).create? %>
+            <%= link_to "Delete Car", car_path(car), method: :delete, class: "btn btn-primary" %>
+          <% end %>
           </div>
-        </div>
     <%end%>
 </div>
