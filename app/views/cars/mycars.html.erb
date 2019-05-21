@@ -1,0 +1,12 @@
+<% @cars.each do |car| %>
+
+<div class="card" style="width: 30rem;">
+  <img class="card-img-top" src="<%= car.image %>" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%= car.model %></h5>
+    <p class="card-text"><%=car.description %></p>
+    <%= link_to "Show Car", car_path(car), class: "btn btn-primary" %>
+  </div>
+</div>
+
+<% end %>
