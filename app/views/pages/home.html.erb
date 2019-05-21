@@ -2,10 +2,6 @@
   <div class="container">
     <h1>The easiest way to ride a sports car</strong>!</h1>
     <p>Change your life and learn to speed.</p>
-    <a class="btn btn-success" href="#">Start now</a>
+    <%= link_to "Browse cars", cars_path, class: "btn btn-success" %>
   </div>
 </div>
-
-<% if user_signed_in? %>
-  <%= link_to 'my cars', user_cars_path(current_user) %> 
-<% end %>
