@@ -1,0 +1,24 @@
+.carbig-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.car-container {
+    border: 1px solid #000000	;
+    border-radius: 5px;
+    margin: 20px 0px;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+}
+
+h5 {
+    margin: 0px;
+}
