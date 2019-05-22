@@ -12,6 +12,7 @@
     border-radius: 5px;
     margin: 20px 0px;
     box-shadow: 5px 10px 18px #888888;
+    padding-bottom: 15px;
 }
 
 .details {
@@ -26,4 +27,38 @@ h5 {
 
 #index_img {
     height: 280px;
+}
+
+.btn-delete {
+    padding: 5px 10px;
+    background-color: #C54435;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.btn-edit {
+    padding: 5px 10px;
+    background-color: #000000;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.btn-show {
+    padding: 5px 10px;
+    background-color: #000000;
+    border-radius: 5px;
+    margin-left: 12px;
+    color: #ffffff;
+    font-size: 13px;
+}
+
+.buttons {
+    margin-left: 150px;
+}
+
+.buttons a:hover {
+    color: #ffffff;
+    text-decoration: none;
 }
