@@ -44,5 +44,5 @@
 
           <% if @car.user == current_user %>
             <%= link_to "Edit Car", edit_car_path(@car), class:"btn btn-dark", id:"btn"  %>
-            <%= link_to "Delete Car", cars_path(@car), method: :delete, class:"btn btn-dark", id:"btn" %>
+            <%= link_to "Delete Car", car_path(@car), method: :delete, class:"btn btn-dark", id:"btn" %>
           <% end %>
