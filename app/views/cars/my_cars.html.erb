@@ -1,5 +1,4 @@
-<h2>Browse your selection of cars</h2>
-<%= link_to "Go back", :back, class: 'btn btn-dark'%>
+<h2 style='text-align:center; margin-top: 20px'>Your selection of cars</h2>
 
 <div class='carbig-container'>
     <% @cars.each do |car| %>
@@ -8,7 +7,7 @@
             <%= image_tag "https://www.automobilesreview.com/gallery/hyundai-luxury-sports-coupe-hnd-9/hyundai-luxury-sports-coupe-hnd-9-01.jpg", id: "index_img" %>
           <% end %>
             <div class='details'>
-                <h5> <%=car.brand%><%=car.model%></h5>
+                <h5> <%=car.brand%> <%=car.model%></h5>
                 <h5> $<%=car.price_per_day%> <small>/day</small> </h5>
             </div>
             <div class=buttons>
