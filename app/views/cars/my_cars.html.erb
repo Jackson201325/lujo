@@ -5,7 +5,7 @@
     <% @cars.each do |car| %>
         <div class='car-container'>
           <%= link_to car_path(car) do %>
-            <%= image_tag "https://www.automobilesreview.com/gallery/hyundai-luxury-sports-coupe-hnd-9/hyundai-luxury-sports-coupe-hnd-9-01.jpg", id: "index_img" %>
+            <%= cl_image_tag car.image, width: 400, height: 280, crop: :thumb %>
           <% end %>
             <div class='details'>
                 <h5> <%=car.brand%><%=car.model%></h5>
