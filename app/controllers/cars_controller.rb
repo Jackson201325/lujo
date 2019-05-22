@@ -26,6 +26,8 @@ class CarsController < ApplicationController
   end
 
   def edit
+    @car = Car.find(params[:id])
+    authorize(@car)
   end
 
   def show
@@ -35,6 +37,10 @@ class CarsController < ApplicationController
   end
 
   def update
+    @car = Car.find(params[:id])
+    @car.update(car_params)
+    authorize(@car)
+    redirect_to user_cars_path
   end
 
   def destroy
