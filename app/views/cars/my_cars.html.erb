@@ -11,11 +11,13 @@
                 <h5> <%=car.brand%><%=car.model%></h5>
                 <h5> $<%=car.price_per_day%> <small>/day</small> </h5>
             </div>
-          <%= link_to "Show Car", car_path(car), class: "btn btn-primary" %>
-          <% if policy(Car).create? %>
-            <%= link_to "Delete Car", car_path(car), method: :delete, class: "btn btn-primary" %>
-            <%= link_to "Edit Car", edit_car_path(car), class: "btn btn-success" %>
-          <% end %>
+            <div class=buttons>
+              <%= link_to "Show Car", car_path(car), class: "btn-show" %>
+              <% if policy(Car).create? %>
+              <%= link_to "Edit Car", edit_car_path(car), class: "btn-edit" %>
+              <%= link_to "Delete Car", car_path(car), method: :delete, class: "btn-delete" %>
+            <% end %>
+            </div>
           </div>
     <%end%>
 </div>
