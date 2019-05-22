@@ -1,7 +1,6 @@
 
 <%= cl_image_tag @car.image, style: "width: 100%; object-fit: cover; overflow: hidden", height: 500, crop: :thumb %>
-
- <div class='show-details'>
+<div class='show-details'>
 <h2> <%=@car.brand%> <%=@car.model%></h2>
 <table style="width:60%">
 <tr>
@@ -44,4 +43,3 @@
   <%= link_to "Edit Car", edit_car_path(@car), class:"btn btn-dark", id:"btn"  %>
   <%= link_to "Delete Car", car_path(@car), method: :delete, class:"btn btn-dark", id:"btn" %>
 <% end %>
-

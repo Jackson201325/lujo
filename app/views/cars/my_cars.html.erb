@@ -1,5 +1,4 @@
-<h2>Browse your selection of cars</h2>
-<%= link_to "Go back", :back, class: 'btn btn-dark'%>
+<h2 style='text-align:center; margin-top: 20px'>Your selection of cars</h2>
 
 <div class='carbig-container'>
     <% @cars.each do |car| %>
@@ -8,7 +7,7 @@
             <%= cl_image_tag car.image, width: 400, height: 280, crop: :thumb %>
           <% end %>
             <div class='details'>
-                <h5> <%=car.brand%><%=car.model%></h5>
+                <h5> <%=car.brand%> <%=car.model%></h5>
                 <h5> $<%=car.price_per_day%> <small>/day</small> </h5>
             </div>
             <div class=buttons>
