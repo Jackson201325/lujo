@@ -5,20 +5,17 @@ class CarsController < ApplicationController
 
   end
 
-  def mycars
+  def my_cars
     @cars = current_user.cars
     authorize(@cars)
-
   end
 
   def new
     @car = Car.new
     authorize(@car)
-
   end
 
   def create
-
     @car = Car.new(car_params)
     authorize(@car)
     @car.user = current_user
@@ -40,11 +37,11 @@ class CarsController < ApplicationController
   def destroy
     @car = Car.find(params[:id])
     @car.destroy
+    authorize(@car)
     redirect_to user_cars_path(current_user)
   end
 
   private
-
   def car_params
     params.require('car').permit(:address, :user_id, :year, :brand, :model, :odometer, :transmission, :license_plate, :description, :price_per_day)
   end

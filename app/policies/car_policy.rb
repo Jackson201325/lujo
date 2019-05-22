@@ -8,15 +8,16 @@ class CarPolicy < ApplicationPolicy
   def index?
     true
   end
+
   def create?
     record = user
   end
-  
-  def show 
+
+  def show?
     true
   end
 
-  def mycars?
+  def my_cars?
     record = user
   end
 
