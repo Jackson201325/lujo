@@ -1,48 +1,47 @@
 
+<%= cl_image_tag @car.image, style: "width: 100%; object-fit: cover; overflow: hidden", height: 500, crop: :thumb %>
 
-            
-            <img src='https://www.automobilesreview.com/gallery/hyundai-luxury-sports-coupe-hnd-9/hyundai-luxury-sports-coupe-hnd-9-01.jpg' alt='luxury car' style='width: 100%; height: 500px; object-fit: cover; overflow: hidden;'> 
-             <div class='show-details'>
-            <h2> <%=@car.brand%> <%=@car.model%></h2>
-            <table style="width:60%">
-            <tr>
-              <td><strong>Address:</strong></th>
-              <td><%= @car.address %></th>
-            </tr>
-            <tr>
-              <td><strong>Year:</strong></td>
-              <td><%= @car.year %></td>
-            </tr>
-            <tr>
-              <td><strong>Odometer:</strong></td>
-              <td><%= @car.odometer %></td>
-            </tr>
-            <tr>
-              <td><strong>Transmission:</strong></td>
-              <td><%= @car.transmission %></td>
-            </tr>
-            <tr>
-              <td><strong>License Plate:</strong></td>
-              <td><%= @car.license_plate %></td>
-            </tr>
-            <tr>
-              <td><strong>Description:</strong></td>
-              <td><%= @car.description %></td>
-            </tr>
-            <tr>
-              <td><strong>Availability:</strong></td>
-              <td><%= @car.availability %></td>
-            </tr>
-            <tr>
-              <td><strong>Price per day:</strong></td>
-              <td><%= @car.price_per_day %>$</td>
-            </tr>
-          </table>
-          </div>
+ <div class='show-details'>
+<h2> <%=@car.brand%> <%=@car.model%></h2>
+<table style="width:60%">
+<tr>
+  <td><strong>Address:</strong></th>
+  <td><%= @car.address %></th>
+</tr>
+<tr>
+  <td><strong>Year:</strong></td>
+  <td><%= @car.year %></td>
+</tr>
+<tr>
+  <td><strong>Odometer:</strong></td>
+  <td><%= @car.odometer %></td>
+</tr>
+<tr>
+  <td><strong>Transmission:</strong></td>
+  <td><%= @car.transmission %></td>
+</tr>
+<tr>
+  <td><strong>License Plate:</strong></td>
+  <td><%= @car.license_plate %></td>
+</tr>
+<tr>
+  <td><strong>Description:</strong></td>
+  <td><%= @car.description %></td>
+</tr>
+<tr>
+  <td><strong>Availability:</strong></td>
+  <td><%= @car.availability %></td>
+</tr>
+<tr>
+  <td><strong>Price per day:</strong></td>
+  <td><%= @car.price_per_day %>$</td>
+</tr>
+</table>
+</div>
 
-          <%= link_to "Go back", :back, class:"btn btn-dark", id:"btn" %>
+<%= link_to "Go back", :back, class:"btn btn-dark", id:"btn" %>
 
-          <% if @car.user == current_user %>
-            <%= link_to "Edit Car", edit_car_path(@car), class:"btn btn-dark", id:"btn"  %>
-            <%= link_to "Delete Car", cars_path(@car), method: :delete, class:"btn btn-dark", id:"btn" %>
-          <% end %>
+<% if @car.user == current_user %>
+<%= link_to "Edit Car", edit_car_path(@car), class:"btn btn-dark", id:"btn"  %>
+<%= link_to "Delete Car", cars_path(@car), method: :delete, class:"btn btn-dark", id:"btn" %>
+<% end %>
