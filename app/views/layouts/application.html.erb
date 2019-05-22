@@ -7,7 +7,7 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
 
@@ -28,13 +28,8 @@
             <li class="nav-item active">
               <%= link_to "List a car", new_car_path, class: "nav-link" %>
             </li>
-            <% if current_user.avatar %>
               <li class="nav-item dropdown ml-4">
-                <%= image_tag "#{current_user.avatar}", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% else %>
-               <li class="nav-item dropdown ml-4">
                 <%= image_tag "avatar-placeholder.png", class: "avatar dropdown-toggle", style: "linear-gradient" ,id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% end %>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                   <%= link_to "My cars", user_cars_path(current_user), class: "dropdown-item" %>
                   <%= link_to "My bookings", "#", class: "dropdown-item" %>

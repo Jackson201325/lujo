@@ -29,6 +29,14 @@ class CarsController < ApplicationController
   end
 
   def show
+    @car_markers = Car.where.not(latitude: nil, longitude: nil)
+
+    @markers = @car_markers.map do |car|
+      {
+        lat: car.latitude,
+        lng: car.longitude
+      }
+    end    
     @car = Car.find(params[:id])
     authorize(@car)
     # raise
@@ -45,6 +53,7 @@ class CarsController < ApplicationController
   end
 
   private
+
   def car_params
     params.require('car').permit(:address, :user_id, :year, :brand, :model, :odometer, :transmission, :license_plate, :description, :price_per_day)
   end
