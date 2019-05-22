@@ -1,4 +1,5 @@
 class CarsController < ApplicationController
+  skip_before_action :authenticate_user!, only:[:index, :show]
   def index
     @cars = Car.all
     policy_scope(@cars)
@@ -7,6 +8,7 @@ class CarsController < ApplicationController
 
   def my_cars
     @cars = current_user.cars
+
     authorize(@cars)
   end
 
@@ -29,6 +31,7 @@ class CarsController < ApplicationController
   def show
     @car = Car.find(params[:id])
     authorize(@car)
+    # raise
   end
 
   def update
