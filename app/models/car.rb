@@ -14,4 +14,6 @@ class Car < ApplicationRecord
   # validates :latitude, presence: true
   # validates :longitude, presence: true
   # validates :price_per_day, presence: true
+
+  mount_uploader :image, PhotoUploader
 end
