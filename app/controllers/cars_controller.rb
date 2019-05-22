@@ -29,17 +29,9 @@ class CarsController < ApplicationController
   end
 
   def show
-    @car_markers = Car.where.not(latitude: nil, longitude: nil)
-
-    @markers = @car_markers.map do |car|
-      {
-        lat: car.latitude,
-        lng: car.longitude
-      }
-    end    
     @car = Car.find(params[:id])
+    @markers =[{:lat=>@car.latitude, :lng=>@car.longitude}]
     authorize(@car)
-    # raise
   end
 
   def update
