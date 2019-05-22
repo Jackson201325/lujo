@@ -8,7 +8,6 @@ class CarsController < ApplicationController
 
   def my_cars
     @cars = current_user.cars
-    session[:return_to] ||= request.referer
 
     authorize(@cars)
   end
