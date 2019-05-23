@@ -1,7 +1,14 @@
 class CarsController < ApplicationController
   skip_before_action :authenticate_user!, only:[:index, :show]
   def index
-
+    @cars_markers = Car.where.not(latitude: nil, longitude: nil)
+    policy_scope(Car)
+    @markers = @cars_markers.map do |car|
+      {
+        lat: car.latitude,
+        lng: car.longitude
+      }
+    end
     if params[:query].present?
       # if params[:query].to_i == Car.where(year: params[:query].to_i)
       #   params[:query].to_i
