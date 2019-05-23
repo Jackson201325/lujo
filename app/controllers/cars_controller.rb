@@ -47,14 +47,15 @@ class CarsController < ApplicationController
     redirect_to user_cars_path(current_user)
   end
 
-  def edit
-    @car = Car.find(params[:id])
-    authorize(@car)
-  end
-
   def show
     @car = Car.find(params[:id])  
     @markers =[{:lat=>@car.latitude, :lng=>@car.longitude}]
+    @booking = Booking.new
+    authorize(@car)
+  end
+  
+  def edit
+    @car = Car.find(params[:id])
     authorize(@car)
   end
 

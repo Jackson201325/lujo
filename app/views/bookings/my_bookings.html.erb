@@ -1,0 +1,35 @@
+<h2 style='text-align:center; margin-top: 20px'>Your bookings</h2>
+
+<div class='bookings'>
+    <div class='booking-container'>
+        <% @bookings.each do |booking| %>
+            <div class='booking_car-container'>
+                <div class='booking-details'>
+                    <%= cl_image_tag booking.car.image, width: 400, height: 280, crop: :thumb %>
+                    <p>Dates: <%=booking.start_date%> - <%=booking.end_date%></p>
+                    <p>Total Price: $<%=booking.price%></p>
+                    <p>Status: <%=booking.status%></p>
+                </div>
+            </div>
+        <%end%>
+    </div>
+    <div class='booking-container'>
+        <% @my_cars.each do |car| %>
+            <% car.bookings.each do |booking| %>
+                <div class='booking_car-container'>
+                    <div class='booking-details'>
+                        <%= cl_image_tag booking.car.image, width: 400, height: 280, crop: :thumb %>
+                        <p>Dates: <%=booking.start_date%> - <%=booking.end_date%></p>
+                        <p>Total Price: $<%=booking.price%></p>
+                        <div>
+                            <p id='status'>Status: <%=booking.status%></p>
+                            <% if booking.status == 'Pending' %>
+                            <%= link_to "Accept", accept_booking_path(booking), method: :patch, class: "btn-edit", id:'accept' %>
+                            <%= link_to "Reject", reject_booking_path(booking), method: :patch, class: "btn-delete", id:'reject' %>
+                            <% end %>
+                    </div>
+                </div>
+            <% end %>
+        <%end%>
+    </div>
+</div>
