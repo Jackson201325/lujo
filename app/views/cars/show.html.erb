@@ -32,6 +32,17 @@
   <td>$<%= @car.price_per_day %></td>
 </tr>
 </table>
+
+<% if @car.user != current_user %>
+<div class='start-end-dates'>
+  <%= simple_form_for([@car, @booking]) do |f| %>
+    <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "Go", class: "btn btn-primary" %>
+  <% end %>
+</div>
+<% end %>
+  
 </div>
 
 <%= link_to "Go back", :back, class:"btn btn-dark", id:"btn" %>
