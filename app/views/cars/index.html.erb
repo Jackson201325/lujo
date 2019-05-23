@@ -1,15 +1,24 @@
-<h2 style='text-align:center; margin-top: 20px'>Browse our selection of cars</h2>
 
-<div class='carbig-container'>
-    <% @cars.each do |car| %>
-        <div class='car-container'>
-            <%= link_to car_path(car) do %>
-                <%= cl_image_tag car.image, width: 400, height: 280, crop: :thumb %>
-            <% end %>
-            <div class='details'>
-                <h5> <%=car.brand%> <%=car.model%></h5>
-                <h5> $<%=car.price_per_day%> <small>/day</small> </h5>
+<div class='index-result'>
+    <div class='carbig-container'>
+    <h2>Browse our selection of cars</h2>
+
+        <% @cars.each do |car| %>
+            <div class='car-card'>
+                <%= link_to car_path(car) do %>
+                    <%= cl_image_tag car.image, width: 300, height: 210, crop: :thumb %>
+                <% end %>
+                <div class='details'>
+                    <h5> <%=car.brand%> <%=car.model%></h5>
+                    <h5> $<%=car.price_per_day%> <small>/day</small> </h5>
+                </div>
             </div>
-        </div>
-    <%end%>
+        <%end%>
+    </div>
+    <div
+    id="map"
+    class="index-map"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
 </div>

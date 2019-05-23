@@ -1,10 +1,14 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
   height: 600px;
+  padding:150px 0px;
 }
-
+.car-show-banner{
+  object-fit: cover;
+  height: 400px;
+  width: 100%;
+}
 .banner h1 {
   margin: 0;
   color: white;

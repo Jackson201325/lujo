@@ -1,29 +1,21 @@
 <h2 style='text-align:center; margin-top: 20px'>Your selection of cars</h2>
-
 <div class='carbig-container'>
-    <% @cars.each do |car| %>
-        <div class='car-container'>
-          <%= link_to car_path(car) do %>
-            <%= cl_image_tag car.image, width: 400, height: 280, crop: :thumb %>
-          <% end %>
-            <div class='details'>
-                <h5> <%=car.brand%> <%=car.model%></h5>
-                <h5> $<%=car.price_per_day%> <small>/day</small> </h5>
-            </div>
-            <div class=buttons>
-              <%= link_to "Show Car", car_path(car), class: "btn-show" %>
-              <% if policy(Car).create? %>
-              <%= link_to "Edit Car", edit_car_path(car), class: "btn-edit" %>
-              <%= link_to "Delete Car", car_path(car), method: :delete, class: "btn-delete" %>
-            <% end %>
-            </div>
-          </div>
-    <%end%>
-  <div
-    id="map"
-    style="width: 100%;
-    height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
+  <% @cars.each do |car| %>
+    <div class='car-card'>
+      <%= link_to car_path(car) do %>
+        <%= cl_image_tag car.image, width:400, height: 280,class:'img', crop: :thumb %>
+      <% end %>
+      <div class='details'>
+          <h5> <%=car.brand%> <%=car.model%></h5>
+          <h5> $<%=car.price_per_day%> <small>/day</small> </h5>
+      </div>
+      <div class="my-car-buttons">
+        <%= link_to "Show Car", car_path(car), class: "btn-l btn-show shrink" %>
+        <% if policy(Car).create? %>
+          <%= link_to "Edit Car", edit_car_path(car), class: "btn-l btn-edit shrink" %>
+          <%= link_to "Delete Car", car_path(car), method: :delete, class: "btn-l btn-delete shrink" %>
+        <%end%>
+      </div>
+    </div>
+  <%end%>
 </div>

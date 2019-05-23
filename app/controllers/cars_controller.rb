@@ -2,7 +2,14 @@ class CarsController < ApplicationController
   skip_before_action :authenticate_user!, only:[:index, :show]
   def index
     @cars = Car.all
-    policy_scope(@cars)
+    @cars_markers = Car.where.not(latitude: nil, longitude: nil)
+    policy_scope(Car)
+    @markers = @cars_markers.map do |car|
+      {
+        lat: car.latitude,
+        lng: car.longitude
+      }
+    end
   end
 
   def my_cars
@@ -12,8 +19,7 @@ class CarsController < ApplicationController
     @markers = @cars_markers.map do |car|
       {
         lat: car.latitude,
-        lng: car.longitude,
-        image_url: helpers.asset_url("Mercedes.jpeg")
+        lng: car.longitude
       }
     end
     authorize(@cars)
