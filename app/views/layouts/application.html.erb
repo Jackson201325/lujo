@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
     <link href="https://cdn.syncfusion.com/ej2/material.css" rel="stylesheet">
-    <title>TODO</title>
+    <title>Lujo</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -40,6 +40,8 @@
             <li class="nav-item active">
               <%= link_to "List a car", new_car_path, class: "nav-link" %>
             </li>
+
+
             <% if current_user.avatar.url %>
               <li class="nav-item dropdown ml-4">
                 <%= cl_image_tag current_user.avatar, class: "avatar-user dropdown-toggle", crop: :thumb, gravity: :face , id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -90,6 +92,7 @@
 
     </div>
     <%= yield %>
+    <%# <%= #debug(params) if Rails.env.development? %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>

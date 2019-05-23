@@ -1,52 +1,59 @@
+<%= cl_image_tag @car.image, class:'car-show-banner' %>
+<div class="car-show-container">
+  <div class='show-details'>
+    <table style="width:%100">
+      <h2><%=@car.brand%> <%=@car.model%></h2>
+      <tr>
+        <td><strong>Address:</strong></th>
+        <td><%= @car.address %></th>
+      </tr>
+      <tr>
+        <td><strong>Year:</strong></td>
+        <td><%= @car.year %></td>
+      </tr>
+      <tr>
+        <td><strong>Odometer:</strong></td>
+        <td><%= @car.odometer %></td>
+      </tr>
+      <tr>
+        <td><strong>Transmission:</strong></td>
+        <td><%= @car.transmission %></td>
+      </tr>
+      <tr>
+        <td><strong>License Plate:</strong></td>
+        <td><%= @car.license_plate %></td>
+      </tr>
+      <tr>
+        <td><strong>Description:</strong></td>
+        <td><%= @car.description %></td>
+      </tr>
+      <tr>
+        <td><strong>Price per day:</strong></td>
+        <td>$<%= @car.price_per_day %></td>
+      </tr>
+    </table>
 
-<%= cl_image_tag @car.image, style: "width: 100%; object-fit: cover; overflow: hidden", height: 500, crop: :thumb %>
-<div class='show-details'>
-<h2> <%=@car.brand%> <%=@car.model%></h2>
-<table style="width:60%">
-<tr>
-  <td><strong>Address:</strong></th>
-  <td><%= @car.address %></th>
-</tr>
-<tr>
-  <td><strong>Year:</strong></td>
-  <td><%= @car.year %></td>
-</tr>
-<tr>
-  <td><strong>Odometer:</strong></td>
-  <td><%= @car.odometer %></td>
-</tr>
-<tr>
-  <td><strong>Transmission:</strong></td>
-  <td><%= @car.transmission %></td>
-</tr>
-<tr>
-  <td><strong>License Plate:</strong></td>
-  <td><%= @car.license_plate %></td>
-</tr>
-<tr>
-  <td><strong>Description:</strong></td>
-  <td><%= @car.description %></td>
-</tr>
-<tr>
-  <td><strong>Price per day:</strong></td>
-  <td>$<%= @car.price_per_day %></td>
-</tr>
-</table>
+    <% if @car.user != current_user %>
+    <div class='start-end-dates'>
+      <%= simple_form_for([@car, @booking]) do |f| %>
+        <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+          <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+          <%= f.button :submit, "Request booking", class: "btn btn-success" %>
+      <% end %>
+    </div>
+    <% end %>
 
-<% if @car.user != current_user %>
-<div class='start-end-dates'>
-  <%= simple_form_for([@car, @booking]) do |f| %>
-    <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.button :submit, "Go", class: "btn btn-primary" %>
-  <% end %>
+    <div class="car-show-buttons">
+      <%= link_to "Go back", :back, class:"btn-l btn-edit" %>
+      <% if @car.user == current_user %>
+        <%= link_to "Edit Car", edit_car_path(@car), class:"btn-l btn-edit"  %>
+        <%= link_to "Delete Car", car_path(@car), method: :delete, class:"btn-l btn-delete" %>
+      <% end %>
+    </div>
+  </div>
+  <div
+    id="map"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
-<% end %>
-  
-</div>
-
-<%= link_to "Go back", :back, class:"btn btn-dark", id:"btn" %>
-<% if @car.user == current_user %>
-  <%= link_to "Edit Car", edit_car_path(@car), class:"btn btn-dark", id:"btn"  %>
-  <%= link_to "Delete Car", car_path(@car), method: :delete, class:"btn btn-dark", id:"btn" %>
-<% end %>

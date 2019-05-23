@@ -1,18 +1,26 @@
+.index-result {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+
 .carbig-container {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-content: center;
     width: 90%;
     margin: 0 auto;
 }
 
-.car-container {
-    overflow: hidden;
-    border-radius: 5px;
-    margin: 20px 0px;
-    box-shadow: 5px 10px 18px #888888;
+h5 {
+    margin: 0px;
 }
+
+h2 {
+    margin: 24px 0px;
+}
+
 
 .details {
     display: flex;
@@ -20,11 +28,3 @@
     padding: 12px;
 }
 
-h5 {
-    margin: 0px;
-}
-
-#index_img {
-    height: 280px;
-    width: 400px;
-}

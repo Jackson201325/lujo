@@ -12,6 +12,7 @@ gem 'faker'
 gem 'hirb'
 gem 'carrierwave'
 gem 'pundit'
+gem 'geocoder'
 gem 'pg_search'
 
 gem 'autoprefixer-rails'

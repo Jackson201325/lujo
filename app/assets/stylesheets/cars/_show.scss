@@ -1,35 +1,18 @@
-.big-container {
-    align-content: center;
-    padding: 60px;
-
-}
-
-.carshow-container {
-    overflow: hidden;
-    border-radius: 5px;
-    width: 700px;
-    margin: 0 auto;
-    box-shadow: 5px 10px 18px #888888;
+.car-show-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 400px;
 }
 
 .show-details {
-    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 24px 0px 0px 60px;
 }
 
-h2 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
+.car-show-buttons {
+    margin-right: 80px;
 }
 
-table {
-    margin: 10px;
-}
-
-#btn {
-    margin: 22px;
-    border-radius: 4px;
-    float: right;
-    background-color: black;
-}
 
