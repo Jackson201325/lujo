@@ -1,36 +1,43 @@
 <%= cl_image_tag @car.image, style: "width: 100%; object-fit: cover; overflow: hidden", height: 500, crop: :thumb %>
 <div class='show-details'>
-<h2> <%=@car.brand%> <%=@car.model%></h2>
-<table style="width:60%">
-<tr>
-  <td><strong>Address:</strong></th>
-  <td><%= @car.address %></th>
-</tr>
-<tr>
-  <td><strong>Year:</strong></td>
-  <td><%= @car.year %></td>
-</tr>
-<tr>
-  <td><strong>Odometer:</strong></td>
-  <td><%= @car.odometer %></td>
-</tr>
-<tr>
-  <td><strong>Transmission:</strong></td>
-  <td><%= @car.transmission %></td>
-</tr>
-<tr>
-  <td><strong>License Plate:</strong></td>
-  <td><%= @car.license_plate %></td>
-</tr>
-<tr>
-  <td><strong>Description:</strong></td>
-  <td><%= @car.description %></td>
-</tr>
-<tr>
-  <td><strong>Price per day:</strong></td>
-  <td>$<%= @car.price_per_day %></td>
-</tr>
-</table>
+  <h2> <%=@car.brand%> <%=@car.model%></h2>
+  <table style="width:60%">
+  <tr>
+    <td><strong>Address:</strong></th>
+    <td><%= @car.address %></th>
+  </tr>
+  <tr>
+    <td><strong>Year:</strong></td>
+    <td><%= @car.year %></td>
+  </tr>
+  <tr>
+    <td><strong>Odometer:</strong></td>
+    <td><%= @car.odometer %></td>
+  </tr>
+  <tr>
+    <td><strong>Transmission:</strong></td>
+    <td><%= @car.transmission %></td>
+  </tr>
+  <tr>
+    <td><strong>License Plate:</strong></td>
+    <td><%= @car.license_plate %></td>
+  </tr>
+  <tr>
+    <td><strong>Description:</strong></td>
+    <td><%= @car.description %></td>
+  </tr>
+  <tr>
+    <td><strong>Price per day:</strong></td>
+    <td>$<%= @car.price_per_day %></td>
+  </tr>
+  </table>
+  <div
+    id="map"
+    style="width: 40%;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
 </div>
 
 <%= link_to "Go back", :back, class:"btn btn-dark", id:"btn" %>

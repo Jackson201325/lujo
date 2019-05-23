@@ -19,7 +19,7 @@ Car.create(year: 2012, brand: 'Tesla', model: 'A6', odometer: 20000, transmissio
 Car.create(year: 2012, brand: 'Lamborghini', model: 'A6', odometer: 20000, transmission: 'manual', user_id: 2, price_per_day: 100, address: '567 Church Road
   PLYMOUTH
   PL26 6DY')
-Car.create(year: 2012, brand: 'McLaren', model: 'A6', odometer: 20000, transmission: 'manual', user_id: 1, price_per_day: 100, address: '90 Church Lane
+Car.create(year: 2012, brand: 'McLaren', model: 'A6', odometer: 20000, transmission: 'manual', user_id: 3, price_per_day: 100, address: '90 Church Lane
   ABERDEEN
   AB74 6VO
   ')

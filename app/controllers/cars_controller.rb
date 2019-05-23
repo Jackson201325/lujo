@@ -3,12 +3,19 @@ class CarsController < ApplicationController
   def index
     @cars = Car.all
     policy_scope(@cars)
-
   end
 
   def my_cars
     @cars = current_user.cars
-
+    @cars_markers = Car.where.not(latitude: nil, longitude: nil)
+    policy_scope(Car)
+    @markers = @cars_markers.map do |car|
+      {
+        lat: car.latitude,
+        lng: car.longitude,
+        image_url: helpers.asset_url("Mercedes.jpeg")
+      }
+    end
     authorize(@cars)
   end
 
@@ -31,7 +38,7 @@ class CarsController < ApplicationController
   end
 
   def show
-    @car = Car.find(params[:id])
+    @car = Car.find(params[:id])  
     @markers =[{:lat=>@car.latitude, :lng=>@car.longitude}]
     authorize(@car)
   end
