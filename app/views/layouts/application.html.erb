@@ -23,8 +23,18 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+            <%= form_tag cars_path, method: :get do %>
+              <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Find a car..."
+              %>
+            <% end %>
+            </li>
             <li class="nav-item active">
               <%= link_to "List a car", new_car_path, class: "nav-link" %>
             </li>
@@ -46,7 +56,7 @@
           </ul>
         </div>
       <% else %>
-         <div class="navbar navbar-expand-sm navbar-dark bg-dark navbar-lewagon">
+    <div class="navbar navbar-expand-sm navbar-dark bg-dark navbar-lewagon">
         <%= link_to "/", class: "navbar-brand" do %>
           <%= image_tag "" %>
           <%= Lujo %>
@@ -59,6 +69,15 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <%= form_tag cars_path, method: :get do %>
+              <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Find a car..."
+              %>
+            <% end %>
+            </li>
             <li class="nav-item">
               <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
             </li>

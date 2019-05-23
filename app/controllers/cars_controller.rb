@@ -1,15 +1,17 @@
 class CarsController < ApplicationController
   skip_before_action :authenticate_user!, only:[:index, :show]
   def index
-    @cars = Car.all
-    @cars_markers = Car.where.not(latitude: nil, longitude: nil)
-    policy_scope(Car)
-    @markers = @cars_markers.map do |car|
-      {
-        lat: car.latitude,
-        lng: car.longitude
-      }
+
+    if params[:query].present?
+      # if params[:query].to_i == Car.where(year: params[:query].to_i)
+      #   params[:query].to_i
+      # end
+      @cars = Car.search_by_car_attributes(params[:query])
+    else
+      @cars = Car.all
     end
+    policy_scope(@cars)
+
   end
 
   def my_cars
@@ -69,3 +71,5 @@ class CarsController < ApplicationController
     params.require('car').permit(:address, :user_id, :year, :brand, :model, :odometer, :transmission, :license_plate, :image, :description, :price_per_day)
   end
 end
+
+# OR year ILIKE :query

@@ -18,4 +18,11 @@ class Car < ApplicationRecord
   # validates :price_per_day, presence: true
 
   mount_uploader :image, PhotoUploader
+
+  include PgSearch
+  pg_search_scope :search_by_car_attributes,
+    against: [ :model, :brand, :address, :transmission, :description ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
