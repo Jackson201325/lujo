@@ -1,10 +1,14 @@
 //booking-card
+.bookings {
+    display: flex;
+    
+}
+
+
 .booking-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: center;
-    width: 90%;
+    width: 50%;
     margin: 0 auto;
 }
 
@@ -15,11 +19,11 @@
     box-shadow: 5px 10px 18px #888888;
 }
 
-.booking-details {
-    display: flex;
-    justify-content: space-between;
-    padding: 12px;
-}
+// .booking-details {
+//     display: flex;
+//     justify-content: space-between;
+//     padding: 12px;
+// }
 
 h5 {
     margin: 0px;

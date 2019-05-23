@@ -6,6 +6,8 @@ class BookingsController < ApplicationController
     
     def my_bookings
         @bookings = current_user.bookings
+        @my_cars = current_user.cars
+        # @incoming_bookings = current_user.cars.bookings
         authorize(@bookings)
     end
     
@@ -41,6 +43,20 @@ class BookingsController < ApplicationController
         @booking = Booking.find(params[:id])
         @booking.update(booking_params)
         authorize(@booking)
+        redirect_to user_bookings_path
+    end
+
+    def accept 
+        @booking = Booking.find(params[:id])
+        authorize(@booking)
+        @booking.update(status: "Accepted!")
+        redirect_to user_bookings_path
+    end
+
+    def reject 
+        @booking = Booking.find(params[:id])
+        authorize(@booking)
+        @booking.update(status: "Rejected")
         redirect_to user_bookings_path
     end
 
