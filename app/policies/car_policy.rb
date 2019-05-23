@@ -9,6 +9,10 @@ class CarPolicy < ApplicationPolicy
     true
   end
 
+  def my_cars?
+    true
+  end
+
   def create?
     true
   end
@@ -17,21 +21,15 @@ class CarPolicy < ApplicationPolicy
     true
   end
 
-  def my_cars?
-
-    true
-
-  end
-
-  def destroy?
-    record == user
-  end
-
   def edit?
-    record == user
+    user == record.user
   end
 
   def update?
-    record == user
+    user == record.user
+  end
+
+  def destroy?
+    user == record.user
   end
 end

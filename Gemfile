@@ -36,4 +36,3 @@ group :development, :test do
 end
 
 gem 'cloudinary', '~> 1.9.1'
-gem 'gon'
