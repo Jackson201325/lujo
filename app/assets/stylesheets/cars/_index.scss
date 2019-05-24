@@ -1,16 +1,15 @@
 .index-result {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
+    display: flex;
+    padding: 0px 32px 32px 32px;
+
 }
 
 .carbig-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 90%;
-    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 32px;
+    flex-grow: 1;
+    margin-right: 32px;
 }
 
 h5 {

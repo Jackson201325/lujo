@@ -1,14 +1,15 @@
-
+<h1 style="padding: 35.75px; margin: 0px"> Collection of Cars </h1>
 <div class='index-result'>
+    
     <div class='carbig-container'>
-    <h2>Browse our selection of cars</h2>
-
         <% @cars.each do |car| %>
             <div class='car-card'>
-                <%= link_to car_path(car) do %>
-                    <%= cl_image_tag car.image, width: 300, height: 210, crop: :thumb %>
-                <% end %>
-                <div class='details'>
+                <div>
+                    <%= link_to car_path(car) do %>
+                        <%= cl_image_tag car.image, class:'card-image' %>
+                    <% end %>
+                </div>
+                <div class='card-details'>
                     <h5> <%=car.brand%> <%=car.model%></h5>
                     <h5> $<%=car.price_per_day%> <small>/day</small> </h5>
                 </div>
@@ -21,4 +22,5 @@
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
+</div>
 </div>

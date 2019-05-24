@@ -3,12 +3,11 @@
 }
 
 .index-map {
-  margin-top: 86px;
-  height: 100vh;
+  height: 821px;
 }
 
 #map {
-  width: 100%;  
+  flex: 0 0 600px;  
   position: sticky;
   top: 0;
 }

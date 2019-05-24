@@ -1,9 +1,25 @@
 .car-card {
-  overflow: hidden;
-  margin-bottom: 48px;
-  box-shadow: 8px 8px 8px rgba($color: #000000, $alpha: 0.1);
+  box-shadow: 0px 4px 24px rgba($color: #000000, $alpha: 0.3);
+  height: 250px
 } 
 
+.card-image{
+    height: 200px;
+    width: 100%;
+    object-fit: cover;    
+}
+
+.car-card-big {
+    box-shadow: 0px 4px 24px rgba($color: #000000, $alpha: 0.3);
+    height: 290px !important;
+}
+
+.card-details{
+    display: flex;
+    justify-content: space-between;
+    height: 48px;
+    padding: 12px;
+}
 .bookings {
     display: flex;
     
@@ -31,9 +47,4 @@
 
 h5 {
     margin: 0px;
-}
-
-#index_img {
-    height: 280px;
-    width: 400px;
 }
