@@ -1,35 +1,33 @@
-<h2 style='text-align:center; margin-top: 20px'>Your bookings</h2>
+<div class='booking-container'>
+    <% @bookings.each do |booking| %> 
+    <div class='booking-card'>
+        <%= cl_image_tag booking.car.image, class:'card-image', crop: :thumb %>
+        <h5><%=booking.car.brand%> <%=booking.car.model%></h5>
+        <div class='details'>
+            <h6>From: <%=booking.start_date%></h6>
+            <h6>To: <%=booking.end_date%></h6>
+            <h6>Total Price: $<%=booking.price%></h6>
+            <h6>Status: <%=booking.status%></h6>
+        </div>
+    </div>
+    <%end%>
 
-<div class='bookings'>
-    <div class='booking-container'>
-        <% @bookings.each do |booking| %>
-            <div class='booking_car-container'>
-                <div class='booking-details'>
-                    <%= cl_image_tag booking.car.image, width: 400, height: 280, crop: :thumb %>
-                    <p>Dates: <%=booking.start_date%> - <%=booking.end_date%></p>
-                    <p>Total Price: $<%=booking.price%></p>
-                    <p>Status: <%=booking.status%></p>
-                </div>
-            </div>
-        <%end%>
-    </div>
-    <div class='booking-container'>
-        <% @my_cars.each do |car| %>
-            <% car.bookings.each do |booking| %>
-                <div class='booking_car-container'>
-                    <div class='booking-details'>
-                        <%= cl_image_tag booking.car.image, width: 400, height: 280, crop: :thumb %>
-                        <p>Dates: <%=booking.start_date%> - <%=booking.end_date%></p>
-                        <p>Total Price: $<%=booking.price%></p>
-                        <div>
-                            <p id='status'>Status: <%=booking.status%></p>
-                            <% if booking.status == 'Pending' %>
-                            <%= link_to "Accept", accept_booking_path(booking), method: :patch, class: "btn-edit", id:'accept' %>
-                            <%= link_to "Reject", reject_booking_path(booking), method: :patch, class: "btn-delete", id:'reject' %>
-                            <% end %>
-                    </div>
-                </div>
+    <% @my_cars.each do |car| %>
+    <% car.bookings.each do |booking| %>
+    <div class='booking-card'>
+        <%= cl_image_tag booking.car.image, class:'card-image', crop: :thumb %>
+        <h5><%=car.brand%> <%=car.model%></h5>
+        <div class='details'>
+            <p>From: <%=booking.start_date%></p>
+            <p>To: <%=booking.end_date%></p>
+            <p>Total Price: $<%=booking.price%></p>
+            <p id='status'>Status: <%=booking.status%></p>
+            <% if booking.status == 'Pending' %>
+            <%= link_to "Accept", accept_booking_path(booking), method: :patch, class: "btn btn-primary", id:'accept' %>
+            <%= link_to "Reject", reject_booking_path(booking), method: :patch, class: "btn btn-danger", id:'reject' %>
             <% end %>
-        <%end%>
+        </div>
     </div>
+    <% end %>
+    <%end%>
 </div>
