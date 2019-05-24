@@ -1,5 +1,7 @@
 class CarsController < ApplicationController
-  skip_before_action :authenticate_user!, only:[:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_car, only: [:show, :edit, :update, :destroy]
+
   def index
     @cars_markers = Car.where.not(latitude: nil, longitude: nil)
     policy_scope(Car)
@@ -18,7 +20,6 @@ class CarsController < ApplicationController
       @cars = Car.all
     end
     policy_scope(@cars)
-
   end
 
   def my_cars
@@ -48,26 +49,22 @@ class CarsController < ApplicationController
   end
 
   def show
-    @car = Car.find(params[:id])  
-    @markers =[{:lat=>@car.latitude, :lng=>@car.longitude}]
+    @markers = [{ lat: @car.latitude, lng: @car.longitude }]
     @booking = Booking.new
     authorize(@car)
   end
-  
+
   def edit
-    @car = Car.find(params[:id])
     authorize(@car)
   end
 
   def update
-    @car = Car.find(params[:id])
     @car.update(car_params)
     authorize(@car)
     redirect_to user_cars_path
   end
 
   def destroy
-    @car = Car.find(params[:id])
     @car.destroy
     authorize(@car)
     redirect_to user_cars_path(current_user)
@@ -75,9 +72,11 @@ class CarsController < ApplicationController
 
   private
 
+  def set_car
+    @car = Car.find(params[:id])
+  end
+
   def car_params
     params.require('car').permit(:address, :user_id, :year, :brand, :model, :odometer, :transmission, :license_plate, :image, :description, :price_per_day)
   end
 end
-
-# OR year ILIKE :query

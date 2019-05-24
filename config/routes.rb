@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :cars do 
-    resources :bookings, only: [:show, :new, :create, :edit, :update, :index]
+  resources :cars do
+    resources :bookings, only: [:new, :create]
   end
   root to: 'pages#home'
   get '/users/:id/cars', to: 'cars#my_cars', as: 'user_cars'
