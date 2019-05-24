@@ -24,8 +24,10 @@
                         <div>
                             <p id='status'>Status: <%=booking.status%></p>
                             <% if booking.status == 'Pending' %>
-                            <%= link_to "Accept", accept_booking_path(booking), method: :patch, class: "btn-edit", id:'accept' %>
-                            <%= link_to "Reject", reject_booking_path(booking), method: :patch, class: "btn-delete", id:'reject' %>
+                              <div data-booking-id="<%= booking.id %>">
+                                <%= link_to "Accept", accept_booking_path(booking), method: :patch, remote: true, class: "btn-edit", id:'accept' %>
+                                <%= link_to "Reject", reject_booking_path(booking), method: :patch, remote: true, class: "btn-delete", id:'reject' %>
+                              </div>
                             <% end %>
                     </div>
                 </div>
