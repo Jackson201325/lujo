@@ -2,12 +2,12 @@
     <% @bookings.each do |booking| %> 
     <div class='booking-card'>
         <%= cl_image_tag booking.car.image, class:'card-image', crop: :thumb %>
-        <h5><%=booking.car.brand%> <%=booking.car.model%></h5>
+        <h5 id='title'><%=booking.car.brand%> <%=booking.car.model%></h5>
         <div class='details'>
-            <h6>From: <%=booking.start_date%></h6>
-            <h6>To: <%=booking.end_date%></h6>
-            <h6>Total Price: $<%=booking.price%></h6>
-            <h6>Status: <%=booking.status%></h6>
+            <h6><section>From:</section> <%=booking.start_date%></h6>
+            <h6><section>To:</section> <%=booking.end_date%></h6>
+            <h6><section>Total Price:</section> $<%=booking.price%></h6>
+            <h6><Section>Status:</section> <%=booking.status%></h6>
         </div>
     </div>
     <%end%>
@@ -16,12 +16,12 @@
     <% car.bookings.each do |booking| %>
     <div class='booking-card'>
         <%= cl_image_tag booking.car.image, class:'card-image', crop: :thumb %>
-        <h5><%=car.brand%> <%=car.model%></h5>
+        <h5 id='title'><%=car.brand%> <%=car.model%></h5>
         <div class='details'>
-            <p>From: <%=booking.start_date%></p>
-            <p>To: <%=booking.end_date%></p>
-            <p>Total Price: $<%=booking.price%></p>
-            <p id='status'>Status: <%=booking.status%></p>
+            <h6><section>From:</section> <%=booking.start_date%></h6>
+            <h6><section>To:</section> <%=booking.end_date%></h6>
+            <h6><section>Total Price:</section> $<%=booking.price%></h6>
+            <h6 id='status'><section>Status:</section> <%=booking.status%></h6>
             <% if booking.status == 'Pending' %>
             <%= link_to "Accept", accept_booking_path(booking), method: :patch, class: "btn btn-primary", id:'accept' %>
             <%= link_to "Reject", reject_booking_path(booking), method: :patch, class: "btn btn-danger", id:'reject' %>

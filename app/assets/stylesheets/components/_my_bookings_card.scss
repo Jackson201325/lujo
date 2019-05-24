@@ -16,9 +16,17 @@
     margin: 0 auto;
     margin-bottom: 30px;
 }
+
+#title {
+    margin: 10px 0px 5px 10px;
+    font-weight: 800;
+}
   
 .details {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
-  
+
+section {
+    font-weight: 800;
+}
