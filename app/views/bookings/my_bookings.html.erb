@@ -25,13 +25,13 @@
                 <%= cl_image_tag booking.car.image, class:'card-image', crop: :thumb %>
                 <h5 id='title'><%=car.brand%> <%=car.model%></h5>
                     <% if booking.status == 'Pending' %>
-                    <div class='details2'>
+                    <div class='details2' data-booking-id='<%= booking.id %>'>
                     <h6><section>From:</section> <%=booking.start_date%></h6>
                     <h6><section>To:</section> <%=booking.end_date%></h6>
-                    <%= link_to "Accept", accept_booking_path(booking), method: :patch, class: "btn-l btn-edit", id:'accept', style: 'text-align:center; padding: 10px 10px; margin: 0px 10px 10px 0px;' %>
+                    <%= link_to "Accept", accept_booking_path(booking), method: :patch, remote: true,  class: "btn-l btn-edit", id:'accept', style: 'text-align:center; padding: 10px 10px; margin: 0px 10px 10px 0px;' %>
                     <h6><section>Total Price:</section> $<%=booking.price%></h6>
                     <h6 id='status'><section>Status:</section> <%=booking.status%></h6>
-                    <%= link_to "Reject", reject_booking_path(booking), method: :patch, class: "btn-l btn-delete", id:'reject', style: 'text-align:center; padding: 10px 10px; margin: 0px 10px 10px 0px;' %>
+                    <%= link_to "Reject", reject_booking_path(booking), method: :patch, remote: true, class: "btn-l btn-delete", id:'reject', style: 'text-align:center; padding: 10px 10px; margin: 0px 10px 10px 0px;' %>
                     </div>
                     <% else %>
                     <div class='details1'>
