@@ -9,3 +9,10 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 32px;
 }
+
+.my-car-buttons {
+  margin-right: 12px;
+  padding-bottom: 12px;
+  display: flex;
+  justify-content: flex-end;
+}

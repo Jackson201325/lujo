@@ -45,13 +45,11 @@ class BookingsController < ApplicationController
   def accept
     authorize(@booking)
     @booking.update(status: "Accepted")
-    redirect_to user_bookings_path
   end
 
   def reject
     authorize(@booking)
     @booking.update(status: "Rejected")
-    redirect_to user_bookings_path
   end
 
   private
