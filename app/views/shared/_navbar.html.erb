@@ -11,19 +11,20 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% unless current_page?(root_path) %>
-        <li class="nav-item">
-        <%= form_tag cars_path, method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control-searchbar",
-            placeholder: "Find a car..."
-          %>
-        <% end %>
+        <li class="nav-item p-1">
+          <%= form_tag cars_path, method: :get, class:'simple_form search' do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control string required",
+              placeholder: "Find a car...",
+              style: "width: 240px"
+            %>
+          <% end %>
         </li>
       <% end %>
 
       <% if user_signed_in? %>
-        <li class="nav-item active">
+        <li class="nav-item">
           <%= link_to "List a car", new_car_path, class: "nav-link" %>
         </li>
 
@@ -51,3 +52,4 @@
   </div>
 
 </div>
+
