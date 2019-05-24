@@ -7,7 +7,7 @@
       <div class='attr-value'><%= image_tag "location.png", style: "width: 30px; height: 30px" %> <%= @car.address %></div>
       <div class='attr-value'><%= image_tag "odometer.png", style: "width: 30px; height: 30px" %> <%= @car.odometer %> miles</div>
       <div class='attr-value'><%= image_tag "transmission.png", style: "width: 30px; height: 30px" %> <%= @car.transmission %></div>
-      <div class='attr-value'><%= image_tag "pricetag.png", style: "width: 30px; height: 30px" %> $<%= @car.price_per_day %></div>
+      <div class='attr-value'><%= image_tag "pricetag.png", style: "width: 30px; height: 30px" %> $<%= @car.price_per_day %>/day</div>
     </div>
       
     <% if @car.user != current_user %>
