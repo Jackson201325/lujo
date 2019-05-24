@@ -1,11 +1,13 @@
-<h2 style='text-align:center; margin-top: 20px'>Your selection of cars</h2>
-<div class='carbig-container'>
+<h2 style='text-align:center; margin-top: 20px'>Your collection</h2>
+<div class='carsmall-container'>
   <% @cars.each do |car| %>
-    <div class='car-card'>
-      <%= link_to car_path(car) do %>
-        <%= cl_image_tag car.image, width:400, height: 280,class:'img', crop: :thumb %>
-      <% end %>
-      <div class='details'>
+    <div class='car-card-big'>
+      <div>
+        <%= link_to car_path(car) do %>
+          <%= cl_image_tag car.image, class:'card-image', crop: :thumb %>
+        <% end %>
+      </div>
+      <div class='card-details'>
           <h5> <%=car.brand%> <%=car.model%></h5>
           <h5> $<%=car.price_per_day%> <small>/day</small> </h5>
       </div>
