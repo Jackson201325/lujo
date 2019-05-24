@@ -1,5 +1,9 @@
-const booking = document.querySelector("[data-booking-id='<%= @booking.id %>']")
-booking.querySelector("#booking-buttons").remove();
+function updateStatus() {
+ const booking = document.querySelector("[data-booking-id='<%= @booking.id %>']");
+ booking.querySelector("#accept").remove();
+ booking.querySelector("#reject").remove();
+ const status = booking.querySelector("#status");   
+ status.innerText = "Status: Accepted";
+};
 
-const status = booking.querySelector("#status")
-status.innerText = "Status: Accepted"
+updateStatus();
