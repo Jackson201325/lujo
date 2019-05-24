@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:create, :accept, :reject]
+  before_action :set_booking, only: [:accept, :reject]
   # def index
   #   @bookings = Booking.all
   #   policy_scope(@bookings)
@@ -17,6 +17,7 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @car = Car.find(params[:car_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.car = @car
