@@ -24,10 +24,10 @@
                         <div data-booking-id="<%= booking.id %>">
                             <p id='status'>Status: <%=booking.status%></p>
                             <% if booking.status == 'Pending' %>
-                              <div id='booking-buttons'>
-                                <%= link_to "Accept", accept_booking_path(booking), method: :patch, remote: true, class: "btn-edit", id:'accept' %>
-                                <%= link_to "Reject", reject_booking_path(booking), method: :patch, remote: true, class: "btn-delete", id:'reject' %>
-                              </div>
+                                <div id='booking-buttons'>
+                                    <%= link_to "Accept", accept_booking_path(booking), method: :patch, remote: true, class: "btn-edit", id:'accept' %>
+                                    <%= link_to "Reject", reject_booking_path(booking), method: :patch, remote: true, class: "btn-delete", id:'reject' %>
+                                </div>
                             <% end %>
                     </div>
                 </div>
