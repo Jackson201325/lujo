@@ -21,10 +21,10 @@
                         <%= cl_image_tag booking.car.image, width: 400, height: 280, crop: :thumb %>
                         <p>Dates: <%=booking.start_date%> - <%=booking.end_date%></p>
                         <p>Total Price: $<%=booking.price%></p>
-                        <div>
+                        <div data-booking-id="<%= booking.id %>">
                             <p id='status'>Status: <%=booking.status%></p>
                             <% if booking.status == 'Pending' %>
-                              <div data-booking-id="<%= booking.id %>">
+                              <div id='booking-buttons'>
                                 <%= link_to "Accept", accept_booking_path(booking), method: :patch, remote: true, class: "btn-edit", id:'accept' %>
                                 <%= link_to "Reject", reject_booking_path(booking), method: :patch, remote: true, class: "btn-delete", id:'reject' %>
                               </div>

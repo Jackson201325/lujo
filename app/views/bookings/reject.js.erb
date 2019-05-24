@@ -1,0 +1,5 @@
+const booking = document.querySelector("[data-booking-id='<%= @booking.id %>']")
+booking.querySelector("#booking-buttons").remove();
+
+const status = booking.querySelector("#status")
+status.innerText = "Status: Rejected"
