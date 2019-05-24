@@ -1,33 +1,48 @@
+<div class='rent-title'>
+    <h1 style='width:50%'>My Rental Expenses</h1>
+    <h1 style='width:50%'>My Rental Income</h1>
+</div>
 <div class='booking-container'>
+    <div class='separation'>
     <% @bookings.each do |booking| %> 
-    <div class='booking-card'>
-        <%= cl_image_tag booking.car.image, class:'card-image', crop: :thumb %>
-        <h5 id='title'><%=booking.car.brand%> <%=booking.car.model%></h5>
-        <div class='details'>
-            <h6><section>From:</section> <%=booking.start_date%></h6>
-            <h6><section>To:</section> <%=booking.end_date%></h6>
-            <h6><section>Total Price:</section> $<%=booking.price%></h6>
-            <h6><Section>Status:</section> <%=booking.status%></h6>
+        <div class='booking-card'>
+            <%= cl_image_tag booking.car.image, class:'card-image', crop: :thumb %>
+            <h5 id='title'><%=booking.car.brand%> <%=booking.car.model%></h5>
+            <div class='details1'>
+                <h6><section>From:</section> <%=booking.start_date%></h6>
+                <h6><section>To:</section> <%=booking.end_date%></h6>
+                <h6><section>Total Price:</section> $<%=booking.price%></h6>
+                <h6><Section>Status:</section> <%=booking.status%></h6>
+            </div>
         </div>
-    </div>
     <%end%>
+    </div>
 
+    <div class='separation'>
     <% @my_cars.each do |car| %>
-    <% car.bookings.each do |booking| %>
-    <div class='booking-card'>
-        <%= cl_image_tag booking.car.image, class:'card-image', crop: :thumb %>
-        <h5 id='title'><%=car.brand%> <%=car.model%></h5>
-        <div class='details'>
-            <h6><section>From:</section> <%=booking.start_date%></h6>
-            <h6><section>To:</section> <%=booking.end_date%></h6>
-            <h6><section>Total Price:</section> $<%=booking.price%></h6>
-            <h6 id='status'><section>Status:</section> <%=booking.status%></h6>
-            <% if booking.status == 'Pending' %>
-            <%= link_to "Accept", accept_booking_path(booking), method: :patch, class: "btn btn-primary", id:'accept' %>
-            <%= link_to "Reject", reject_booking_path(booking), method: :patch, class: "btn btn-danger", id:'reject' %>
-            <% end %>
-        </div>
-    </div>
+        <% car.bookings.each do |booking| %>
+            <div class='booking-card'>
+                <%= cl_image_tag booking.car.image, class:'card-image', crop: :thumb %>
+                <h5 id='title'><%=car.brand%> <%=car.model%></h5>
+                    <% if booking.status == 'Pending' %>
+                    <div class='details2'>
+                    <h6><section>From:</section> <%=booking.start_date%></h6>
+                    <h6><section>To:</section> <%=booking.end_date%></h6>
+                    <%= link_to "Accept", accept_booking_path(booking), method: :patch, class: "btn-l btn-edit", id:'accept', style: 'text-align:center; padding: 10px 10px; margin: 0px 10px 10px 0px;' %>
+                    <h6><section>Total Price:</section> $<%=booking.price%></h6>
+                    <h6 id='status'><section>Status:</section> <%=booking.status%></h6>
+                    <%= link_to "Reject", reject_booking_path(booking), method: :patch, class: "btn-l btn-delete", id:'reject', style: 'text-align:center; padding: 10px 10px; margin: 0px 10px 10px 0px;' %>
+                    </div>
+                    <% else %>
+                    <div class='details1'>
+                    <h6><section>From:</section> <%=booking.start_date%></h6>
+                    <h6><section>To:</section> <%=booking.end_date%></h6>
+                    <h6><section>Total Price:</section> $<%=booking.price%></h6>
+                    <h6 id='status'><section>Status:</section> <%=booking.status%></h6>
+                    </div>
+                    <% end %>
+            </div>
+        <% end %>
     <% end %>
-    <%end%>
+    </div>
 </div>
