@@ -3,20 +3,28 @@ class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cars_markers = Car.where.not(latitude: nil, longitude: nil)
     policy_scope(Car)
-    @markers = @cars_markers.map do |car|
-      {
-        lat: car.latitude,
-        lng: car.longitude
-      }
-    end
+ 
     if params[:query].present?
       # if params[:query].to_i == Car.where(year: params[:query].to_i)
       #   params[:query].to_i
       # end
       @cars = Car.search_by_car_attributes(params[:query])
+      @cars_markers = @cars.where.not(latitude: nil, longitude: nil)
+      @markers = @cars_markers.map do |car|
+        {
+          lat: car.latitude,
+          lng: car.longitude
+        }
+      end
     else
+      @cars_markers = Car.where.not(latitude: nil, longitude: nil)
+      @markers = @cars_markers.map do |car|
+        {
+          lat: car.latitude,
+          lng: car.longitude
+        }
+      end
       @cars = Car.all
     end
     policy_scope(@cars)
