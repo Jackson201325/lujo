@@ -13,3 +13,5 @@ Car.create(year: 2012, brand: 'Tesla', model: 'A6', odometer: 20000, transmissio
 Car.create(year: 2012, brand: 'Lamborghini', model: 'A6', odometer: 20000, transmission: 'manual', user_id: 2, price_per_day: 100, address: '2745  Kenwood Place')
 Car.create(year: 2012, brand: 'McLaren', model: 'A6', odometer: 20000, transmission: 'manual', user_id: 3, price_per_day: 100, address: '2307  Stratford Court
   ')
+Spree::Core::Engine.load_seed if defined?(Spree::Core)
+Spree::Auth::Engine.load_seed if defined?(Spree::Auth)
