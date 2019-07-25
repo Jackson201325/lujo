@@ -54,3 +54,17 @@
 .map-shadow {
     box-shadow: 0px 4px 24px rgba($color: #000000, $alpha: 0.3);
 }
+
+@media (max-width: 1200px) {
+    .car-show-container {
+        display: contents;
+    }
+
+    .show-details {
+        margin-right: 0px;
+    }
+
+    .start-end-inputs {
+        display: contents;
+    }
+}
