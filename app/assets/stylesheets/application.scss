@@ -49,4 +49,9 @@
   height: 30px;
 }
 
-
+@media (max-width: 1200px) {
+  .container-landing {
+    width: 80%;
+    margin-left: 50px;
+  }
+}
