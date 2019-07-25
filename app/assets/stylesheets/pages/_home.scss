@@ -38,3 +38,14 @@ h4 {
 body {
     background-color: #ffffff;
 }
+
+@media (max-width: 1200px) {
+    .info-container {
+        display: contents;
+    }
+
+    .info {
+        width: 100%;
+        margin: 60px 0;
+    }    
+}
