@@ -47,3 +47,16 @@ section {
 .separation {
     width: 50%;
 }
+
+@media (max-width: 1200px) {
+    .rent-title {
+        display: contents;
+        h1 {
+            margin: 40px auto;
+        }
+    }
+
+    .separation {
+        width: 100%;
+    }
+}
