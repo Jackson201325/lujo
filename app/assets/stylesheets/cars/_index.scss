@@ -27,3 +27,23 @@ h2 {
     padding: 12px;
 }
 
+@media (max-width: 1200px) {
+    .index-result {
+        display: contents;
+    }
+
+    .carbig-container {
+        display: contents;
+        margin-right: 0;
+    }
+
+    .car-card {
+        width: 90vw;
+        margin: 40px auto;
+    }
+
+    .index-map {
+        width: 90vw;
+        margin: 0 auto;
+    }
+}
